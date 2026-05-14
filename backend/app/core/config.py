@@ -10,9 +10,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 class Settings(BaseSettings):
     DATABASE_URL: str
     SECRET_KEY: str
+
     ALGORITHM: str = "HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60
-    BACKEND_CORS_ORIGINS: str = "http://localhost:5173"
+
+    # BACKEND_CORS_ORIGINS: str = (
+    #     "http://localhost:5173,"
+    #     "https://blogapp-dun-one.vercel.app",
+    #     "https://blog-8pzj159zs-thalleous88s-projects.vercel.app"
+    # )
 
     model_config = SettingsConfigDict(
         env_file=BASE_DIR / ".env",

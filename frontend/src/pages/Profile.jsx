@@ -16,7 +16,9 @@ export default function Profile() {
   useEffect(() => {
     authService
       .myPosts()
-      .then(setPosts)
+      .then((data) => {
+  setPosts(Array.isArray(data) ? data : data.items || [])
+})
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false))
   }, [])

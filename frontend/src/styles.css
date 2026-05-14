@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply bg-paper text-ink antialiased;
+  }
+
+  body {
+    @apply min-h-screen font-sans;
+  }
+
+  button,
+  input,
+  textarea {
+    font: inherit;
+  }
+}
+
+@layer components {
+  .shell {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.18em] text-accent;
+  }
+
+  .btn {
+    @apply inline-flex min-h-10 items-center justify-center border border-transparent px-4 py-2 text-sm font-semibold transition;
+  }
+
+  .btn-primary {
+    @apply btn bg-ink text-white hover:bg-accent;
+  }
+
+  .btn-secondary {
+    @apply btn border-line bg-white text-ink hover:border-ink;
+  }
+
+  .btn-danger {
+    @apply btn border-ember text-ember hover:bg-ember hover:text-white;
+  }
+
+  .input {
+    @apply w-full border border-line bg-white px-3 py-2.5 text-sm outline-none transition placeholder:text-muted/70 focus:border-ink focus:ring-2 focus:ring-ink/10;
+  }
+
+  .label {
+    @apply text-sm font-semibold text-ink;
+  }
+
+  .error-text {
+    @apply text-sm font-medium text-ember;
+  }
+
+  .reading-prose {
+    @apply prose prose-neutral max-w-none prose-headings:font-serif prose-headings:text-ink prose-p:text-[1.05rem] prose-p:leading-8 prose-a:text-accent prose-strong:text-ink prose-code:text-ember prose-pre:bg-ink;
+  }
+}

@@ -5,7 +5,8 @@ import { TOKEN_KEY } from '../utils/storage.js'
 export const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL || 'http://localhost:8000',
   headers: {
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'ngrok-skip-browser-warning': 'true'
   }
 })
 

@@ -34,7 +34,7 @@ export default function PostDetail() {
       .then(([postData, commentData]) => {
         if (!active) return
         setPost(postData)
-        setComments(commentData)
+        setComments(Array.isArray(commentData) ? commentData : commentData.comments || [])
       })
       .catch((err) => active && setError(err.message))
       .finally(() => active && setLoading(false))

@@ -14,24 +14,15 @@ class Settings(BaseSettings):
     ALGORITHM: str = "HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60
 
-    # BACKEND_CORS_ORIGINS: str = (
-    #     "http://localhost:5173,"
-    #     "https://blogapp-dun-one.vercel.app",
-    #     "https://blog-8pzj159zs-thalleous88s-projects.vercel.app"
-    # )
+    BACKEND_CORS_ORIGINS: list[str] = [
+        "http://localhost:5173",
+        "https://blogapp-dun-one.vercel.app",
+    ]
 
     model_config = SettingsConfigDict(
         env_file=BASE_DIR / ".env",
-        extra="ignore"
+        extra="ignore",
     )
-
-    @property
-    def cors_origins(self) -> list[str]:
-        return [
-            origin.strip()
-            for origin in self.BACKEND_CORS_ORIGINS.split(",")
-            if origin.strip()
-        ]
 
 
 @lru_cache
